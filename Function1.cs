@@ -23,12 +23,14 @@ namespace ControlCochesCosmosSql
         public void Run([CosmosDBTrigger(
             databaseName: "coches",
             collectionName: "micoleccion",
-            ConnectionStringSetting = "cosmosdb")]
+            ConnectionStringSetting = "cosmosdb"
+            , CreateLeaseCollectionIfNotExists = true,
+             LeaseCollectionName = "leases")]
         IReadOnlyList<Document> input, ILogger log)
         {
             if (input != null && input.Count > 0)
             {
-                //LO QUE VIENE SON DATOS JSON
+                //LO QUE VIENE SON DATOS JSON, PERO UN ARRAY
                 var data = JsonConvert.SerializeObject(input);
                 log.LogInformation("Coche cosmos: " + data);
                 List<Coche> coches =

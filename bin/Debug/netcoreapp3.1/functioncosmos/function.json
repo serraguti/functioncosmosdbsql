@@ -1,0 +1,22 @@
+{
+  "generatedBy": "Microsoft.NET.Sdk.Functions-3.0.11",
+  "configurationSource": "attributes",
+  "bindings": [
+    {
+      "type": "cosmosDBTrigger",
+      "connectionStringSetting": "cosmosdb",
+      "createLeaseCollectionIfNotExists": true,
+      "leaseCollectionName": "leases",
+      "collectionName": "micoleccion",
+      "databaseName": "coches",
+      "leaseDatabaseName": "coches",
+      "startFromBeginning": false,
+      "useMultipleWriteLocations": false,
+      "useDefaultJsonSerialization": false,
+      "name": "input"
+    }
+  ],
+  "disabled": false,
+  "scriptFile": "../bin/ControlCochesCosmosSql.dll",
+  "entryPoint": "ControlCochesCosmosSql.Function1.Run"
+}
